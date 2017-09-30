@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+
+body{
+	background:url("https://github.com/riversword/images/raw/master/JavaScript%20Calculator/calculatorBackgroundc.jpg");
+	background-color: rgb(36,104,177);
+}
+.main{
+	width:500px;
+	height:540px;
+	margin:30px auto;
+	border:2px rgb(100,100,100) solid;
+	border-left:2px rgb(150,150,150) solid;
+	border-top:2px rgb(150,150,150) solid;
+	border-radius:10px;
+	background-color: rgb(40,40,40);
+	box-shadow: 25px 25px 10px rgba(0,0,0,0.9);
+}
+.screen{
+	width:420px;
+	height:200px;
+	margin:15px auto;
+	border:10px rgb(20,20,20) solid;
+	border-right:10px rgb(100,100,100) solid;
+	border-bottom:10px rgb(150,150,150) solid;
+	background-color: rgb(47,67,77);
+	box-shadow: 10px 10px 2px rgb(0,0,0) inset;
+}
+.screen p{
+	text-shadow:10px 10px 2px rgb(0,0,0);
+}
+#inputContent{
+	width:380px;
+	height:100px;
+	margin:0 auto;
+	border-bottom:1px rgb(150,150,150) solid;
+}
+#inputContent p{
+	font-size:20px;
+	color:rgb(255,255,255);
+}
+#result{
+	width:380px;
+	height:94px;
+	margin:0 auto;
+}
+#result p:first-child{
+	font-size: 14px;
+	margin:0;
+	text-align: left;
+	color:rgb(255,255,255);
+}
+#result p:nth-child(2){
+	font-size: 30px;
+	margin:0;
+	text-align: right;
+	color:rgb(255,255,255);
+}
+.buttons{
+	margin:0;
+	padding:0;
+}
+table{
+	margin:15px auto 0;
+	border-radius: 10px;
+	/*box-shadow: 5px 5px 2px rgba(0,0,0,1) ;*/
+}
+table td{
+	width:80px;
+	height:55px;
+	border:2px rgb(10,10,10) solid;
+	border-top:2px rgb(255,255,255) solid;
+	border-left:2px rgb(255,255,255) solid;
+	border-radius: 10px;
+	text-align:center;
+	font-size: 28px;
+	background-color:rgb(200,200,200);
+	box-shadow: 8px 8px 3px rgb(0,0,0);
+}
+table td:hover{
+	background-color:rgb(250,250,250);
+}
+table tr td:nth-child(4){
+	background-color: rgb(200,0,0);
+	border-top:2px rgb(255,150,150) solid;
+	border-left:2px rgb(255,150,150) solid;
+}
+table tr td:nth-child(4):hover{
+	background-color: rgb(250,0,0);
+}
+table tr td:nth-child(5){
+	background-color: rgb(200,0,0);
+	border-top:2px rgb(255,150,150) solid;
+	border-left:2px rgb(255,150,150) solid;
+}
+table tr td:nth-child(5):hover{
+	background-color: rgb(250,0,0);
+}
+p.footer{
+	text-align: center;
+	font-size: 14px;
+	font-family: Georgia,Times;
+	text-shadow:2px 2px 0 rgb(200,200,200);
+	padding:0;
+	margin-top: 8px;
+}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var inputStr="";
+	var buttons=$('table td');
+	var result="", Ans="";
+	buttons.click(function(){
+		if($(this).html()!='='&& $(this).html()!='AC' && $(this).html()!='AE' && $(this).html()!='Ans'){
+			inputStr+=$(this).html();
+			showInput();	
+		}else if($(this).html()=='Ans'){
+			inputStr+=Ans;
+			showInput();
+		}
+		else{
+			switch($(this).html()){
+				case '='://先判断inputStr是否为有效字符串：无连续运算符、结尾不是运算符.运算符号需要转义
+						 if(/^[\*\/\.]/g.test(inputStr) || /[\+\-\*\/\.]$/g.test(inputStr) || /[\+\-\*\/\.][\+\-\*\/\.]/g.test(inputStr)){
+						 	$('#result p:eq(1)').html('error!');
+						 	$('#result p:eq(1)').css('color','red');
+						 }else{
+						 	result=eval(inputStr);
+						 	console.log(result);
+						 	Ans=result;
+						 	$('#result p:eq(1)').html(result);
+						 	$('#result p:eq(0)').html('Ans='+result);
+						 }
+						 break;					 
+				case 'AC':inputStr='';
+						  $('#result p:eq(1)').html('');
+						  showInput();
+						  break;
+				case 'AE':inputStr=inputStr.slice(0,inputStr.length-1);
+				console.log(inputStr.length);
+						  showInput();
+						  break;
+			}
+		}
+		
+	});
+
+	function showInput(){
+		$('#inputContent p').html(inputStr);
+	}
+});
+	
+</script>
+</head>
+<body>
+<div class="main">
+	<div class="screen">
+		<div id="inputContent"><P></p></div>
+		<div id="result"><p></p> <p></p></div>
+	</div>
+	<div class="buttons">
+		<table>
+			<tr><td>1</td> <td>2</td> <td>3</td> <td>+</td> <td>*</td></tr>
+			<tr><td>4</td> <td>5</td> <td>6</td> <td>-</td> <td>/</td></tr>
+			<tr><td>7</td> <td>8</td> <td>9</td> <td >Ans</td> <td >AC</td></tr>
+			<tr><td>0</td> <td>.</td> <td>=</td> <td colspan="2">AE</td></tr>
+		</table>
+	</div>
+	<p class="footer">made by riversword</p>
+</div>
+</body>
+</html>
