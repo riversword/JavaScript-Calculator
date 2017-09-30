@@ -126,8 +126,8 @@ $(document).ready(function(){
 			switch($(this).html()){
 				case '='://先判断inputStr是否为有效字符串：无连续运算符、结尾不是运算符.运算符号需要转义
 						 if(/^[\*\/\.]/g.test(inputStr) || /[\+\-\*\/\.]$/g.test(inputStr) || /[\+\-\*\/\.][\+\-\*\/\.]/g.test(inputStr)){
-						 	$('#result p:eq(1)').html('error!');
-						 	$('#result p:eq(1)').css('color','red');
+						 	$('#result p:eq(1)').html('<span style="color:red">error!<span>');
+						 	
 						 }else{
 						 	result=eval(inputStr);
 						 	console.log(result);
