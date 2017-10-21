@@ -18,7 +18,7 @@ body{
 }
 .back{
 	width:320px;
-	margin:0 auto;
+	margin:5px auto 0;
 	box-shadow:20px 20px 20px rgba(0,0,0,0.4);
 	border:1px rgba(255,255,255,0.4) solid;
 }
