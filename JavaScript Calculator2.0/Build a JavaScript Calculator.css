@@ -17,7 +17,7 @@ body{
 	margin-bottom:5px;
 }
 .back{
-	width:320px;
+	width:300px;
 	margin:5px auto 0;
 	box-shadow:20px 20px 20px rgba(0,0,0,0.4);
 	border:1px rgba(255,255,255,0.4) solid;
@@ -28,7 +28,7 @@ body{
 .screen{
 	width:100%;
 	margin-top:2%;
-	height:200px;
+	height:150px;
 	color:rgb(255,255,255);
 }
 #inputContent{
@@ -38,7 +38,7 @@ body{
 	margin:0 5px;
 }
 #inputContent p{
-	font-size:1.5em;
+	font-size:1.2em;
 	color:rgba(250,250,250,0.7);
 	text-shadow:10px 10px 2px rgba(0,0,0,0.5);
 	word-break:break-all; 
@@ -48,20 +48,20 @@ body{
 	margin:0 5px;
 	border:1px rgba(255,255,255,0.5) solid;
 	border-top:none; 
-	height:100px;
+	height:50%;
 }
 #result p{
 	word-break:break-all; 
 	word-wrap:break-word ;
 }
 #result p:first-child{
-	font-size: 1em;
+	font-size: 0.8em;
 	text-align: left;
 	color:rgba(250,250,250,0.7);
 	text-shadow:10px 10px 2px rgba(0,0,0,0.5);
 }
 #result p:nth-child(2){
-	font-size: 2.5em;
+	font-size: 2.1em;
 	margin:0;
 	text-align: right;
 	color:rgba(250,250,250,0.8);
@@ -72,11 +72,11 @@ table{
 	border:0;
 	margin:0;
 	border-collapse:separate;
-	border-spacing:5px;
+	border-spacing:4px;
 }
 table tr td{
 	width:70px;
-	height:70px;
+	height:60px;
 	border:2px rgba(255,255,255,0.4) solid;
 	color:rgba(250,250,250,0.4);
 	text-align: center;
@@ -97,7 +97,7 @@ table tr td:hover{
 }
 
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 320px) {
 .main h3{
 	display: none;/*变化*/
 }
@@ -109,6 +109,7 @@ table tr td:hover{
 	box-shadow: none;/*变化*/
 }
 table tr td{
+	height:50px;
 	border:2px rgba(255,255,255,0.8) solid;/*变化*/
 	color:rgba(250,250,250,0.8);/*变化*/
 }
