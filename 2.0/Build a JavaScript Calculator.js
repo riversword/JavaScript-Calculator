@@ -12,7 +12,7 @@ $(document).ready(function(){
 	buttons.click(function(){
 
 			if($(this).html()!='='&& $(this).html()!='AC' && $(this).html()!='AE' && $(this).html()!='Ans'){
-				//when the length of input beyond the limit, do nothing
+				//屏幕中字符串超限制时，不响应
 				if(inputLimit){
 					//do nothing
 				}else{
@@ -31,7 +31,7 @@ $(document).ready(function(){
 				}else{
 					if(inputStr.length+Ans.toString().length>=inputMaxL){
 						inputStr+=Ans;
-						inputStr=inputStr.slice(0,inputMaxL);//get the 60 characters from beginnng
+						inputStr=inputStr.slice(0,inputMaxL);//获取前60个字符
 						inputStr+='...';
 						inputLimit=true;
 					}else{
@@ -45,7 +45,7 @@ $(document).ready(function(){
 					case '=':
 							 if(!inputLimit){
 							 	if(/^[\*\/\.]/g.test(inputStr) || /[\+\-\*\/\.]$/g.test(inputStr) || /[\+\-\*\/\.][\+\-\*\/\.]/g.test(inputStr)){
-							 		//beginning with math operator, will output "error"
+							 		//若是运算符开头，则显示错误
 							 		$('#result p:eq(1)').html('error!');
 							 		$('#result p:eq(1)').css('color','red');
 							 	}else{
@@ -66,7 +66,7 @@ $(document).ready(function(){
 							  $('#result p:eq(1)').html('');
 							  inputLimit=false;
 							  showInput();
-							  if(hasACclick){//double click "AC" will clear "Ans"
+							  if(hasACclick){//双击"AC"清除屏幕上的"Ans"
 							  	Ans='';
 							  	$('#result p:eq(0)').html('');
 							  }
