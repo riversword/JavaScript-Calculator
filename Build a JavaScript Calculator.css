@@ -1,0 +1,141 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html, 
+body{
+  height: 100%;
+}
+
+body{
+  background: -webkit-linear-gradient(left,rgba(0,150,255,1),rgba(150,0,255,1)); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(left,rgba(0,150,255,1),rgba(150,0,255,1)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(left,rgba(0,150,255,1),rgba(150,0,255,1)); /* For Firefox 3.6 to 15 */
+  background: -linear-gradient(left,rgba(0,150,255,1),rgba(150,0,255,1)); /* 标准语法 (必须在最后) */
+}
+
+.main h3{
+	margin-bottom: 5px;
+	text-align: center;
+	color: rgba(200,200,200,0.4);
+}
+
+.back{
+	width: 300px;
+	margin: 5px auto 0;
+	box-shadow: 20px 20px 20px rgba(0,0,0,0.4);
+	border: 1px rgba(255,255,255,0.4) solid;
+}
+
+.back:hover{ box-shadow: 20px 20px 20px rgba(0,0,0,0.6); }
+
+.screen{
+	width: 100%;
+	margin-top: 2%;
+	height: 150px;
+	color: rgb(255,255,255);
+}
+
+#inputContent{
+	height: 50%;
+	margin: 0 5px;
+	border: 1px rgba(255,255,255,0.5) solid;
+	border-bottom: none;
+}
+
+#inputContent p{
+	font-size: 1.2em;
+	color: rgba(250,250,250,0.9);
+	/*text-shadow: 10px 10px 2px rgba(0,0,0,0.5);*/
+	word-break: break-all; 
+	word-wrap: break-word ;
+}
+
+#result{
+	height: 50%;
+	margin: 0 5px;
+	border: 1px rgba(255,255,255,0.5) solid;
+	border-top: none; 
+}
+
+#result p{
+	word-break: break-all; 
+	word-wrap: break-word ;
+}
+
+#result p:first-child{
+	font-size: 0.8em;
+	text-align: left;
+	/*text-shadow: 10px 10px 2px rgba(0,0,0,0.5);*/
+	color: rgba(250,250,250,0.8);
+}
+
+#result p:nth-child(2){
+	margin: 0;
+	font-size: 2.1em;
+	text-align: right;
+	/*text-shadow: 10px 10px 2px rgba(0,0,0,0.8);*/
+	color: rgba(250,250,250,1);
+}
+
+table{
+	width: 100%;
+	margin: 0;
+	border: 0;
+	border-collapse: separate;
+	border-spacing: 4px;
+}
+
+table tr td{
+	width: 70px;
+	height: 60px;
+	font-size: 1.2em;
+	text-align: center;
+	border: 2px rgba(255,255,255,0.4) solid;
+	color: rgba(250,250,250,0.4);
+	cursor: pointer;
+}
+
+table tr td:hover{
+	font-size: 2em;
+	font-weight: bold;
+	border: 2px rgb(255,255,255) solid;
+	border-radius: 5px;
+	color: rgba(255,255,255,1);
+	box-shadow: 20px 20px 20px rgba(0,0,0,1);
+}
+
+.footer{
+	margin-top: 10%;
+	text-align: center;
+}
+
+
+@media screen and (max-width: 320px) {
+
+.main h3{ display: none; }
+
+.back{
+	width: 100%;
+	box-shadow: none;
+}
+
+.back:hover{ box-shadow: none; }
+
+table tr td{
+	height: 50px;
+	border: 2px rgba(255,255,255,0.8) solid;
+	color: rgba(250,250,250,0.8);
+}
+
+table tr td:hover{
+	font-size: 1.2em;
+	font-weight: normal;
+	border: 2px rgba(255,255,255,0.8) solid;
+	border-radius: none;
+	color: rgba(250,250,250,0.8);
+	box-shadow: none;
+}
+
+}
