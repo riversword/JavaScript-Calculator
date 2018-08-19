@@ -112,39 +112,42 @@ p.footer{
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	var inputStr="";
-	var buttons=$('table td');
-	var result="", Ans="";
-	buttons.click(function(){
-		if($(this).html()!='='&& $(this).html()!='AC' && $(this).html()!='AE' && $(this).html()!='Ans'){
-			inputStr+=$(this).html();
+	var inputStr = "";
+	var buttons = $('table td');
+	var result = "", Ans = "";
+	buttons.click(function () {
+		if ($(this).html() != '=' && $(this).html() != 'AC' && $(this).html() != 'AE' && $(this).html() != 'Ans') {
+			inputStr += $(this).html();
 			showInput();	
-		}else if($(this).html()=='Ans'){
-			inputStr+=Ans;
+		} else if ($(this).html() == 'Ans') {
+			inputStr += Ans;
 			showInput();
-		}
-		else{
-			switch($(this).html()){
-				case '='://先判断inputStr是否为有效字符串：无连续运算符、结尾不是运算符.运算符号需要转义
-						 if(/^[\*\/\.]/g.test(inputStr) || /[\+\-\*\/\.]$/g.test(inputStr) || /[\+\-\*\/\.][\+\-\*\/\.]/g.test(inputStr)){
-						 	$('#result p:eq(1)').html('<span style="color:red">error!<span>');
-						 	
-						 }else{
-						 	result=eval(inputStr);
-						 	console.log(result);
-						 	Ans=result;
-						 	$('#result p:eq(1)').html(result);
-						 	$('#result p:eq(0)').html('Ans='+result);
-						 }
-						 break;					 
-				case 'AC':inputStr='';
-						  $('#result p:eq(1)').html('');
-						  showInput();
-						  break;
-				case 'AE':inputStr=inputStr.slice(0,inputStr.length-1);
+		} else {
+			switch ($(this).html()) {
+				case '=':
+				//先判断inputStr是否为有效字符串：无连续运算符、结尾不是运算符.运算符号需要转义
+				if (/^[\*\/\.]/g.test(inputStr) || /[\+\-\*\/\.]$/g.test(inputStr) || /[\+\-\*\/\.][\+\-\*\/\.]/g.test(inputStr)) {
+					$('#result p:eq(1)').html('<span style="color:red">error!<span>');
+				} else {
+					result = eval(inputStr);
+					console.log(result);
+					Ans = result;
+					$('#result p:eq(1)').html(result);
+					$('#result p:eq(0)').html('Ans=' + result);
+				}
+				break;
+
+				case 'AC':
+				inputStr = '';
+				$('#result p:eq(1)').html('');
+				showInput();
+				break;
+
+				case 'AE':
+				inputStr = inputStr.slice(0, inputStr.length-1);
 				console.log(inputStr.length);
-						  showInput();
-						  break;
+				showInput();
+				break;
 			}
 		}
 		
