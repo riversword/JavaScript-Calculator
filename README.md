@@ -4,7 +4,7 @@
 
 - 1.0
 
-  复古版，利用 CSS 刻画出逼真的计算器实物。预览 [demo](http://riversword.github.io/calculator/)
+  复古版，利用 CSS 刻画出逼真的计算器实物。预览 [demo](http://riversword.github.io/calculator/1.0/calculator1.0.html)
 
 ![](https://github.com/riversword/calculator/blob/master/1.0/1.0.png)
 
@@ -12,7 +12,7 @@
 
 - 2.0
 
-  科技版，透明虚拟的界面，给人一种未来的科技感。预览 [demo](http://riversword.github.io/calculator/1.0/calculator1.0.html)
+  科技版，透明虚拟的界面，给人一种未来的科技感。预览 [demo](http://riversword.github.io/calculator/)
 
 ![](https://github.com/riversword/calculator/blob/master/2.0.png)
 
